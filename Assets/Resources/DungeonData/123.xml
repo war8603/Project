@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<DungeonInfo>
+  <Info>
+    <DungeonType>1</DungeonType>
+    <SquPoint>7 7</SquPoint>
+    <PathInfo>
+      <DirectionType>2</DirectionType>
+      <EndTilePoint>7 13</EndTilePoint>
+    </PathInfo>
+  </Info>
+  <Info>
+    <DungeonType>0</DungeonType>
+    <SquPoint>7 13</SquPoint>
+    <PathInfo>
+      <DirectionType>4</DirectionType>
+      <EndTilePoint>14 13</EndTilePoint>
+    </PathInfo>
+    <PathInfo>
+      <DirectionType>6</DirectionType>
+      <EndTilePoint>7 7</EndTilePoint>
+    </PathInfo>
+  </Info>
+  <Info>
+    <DungeonType>1</DungeonType>
+    <SquPoint>14 13</SquPoint>
+    <PathInfo>
+      <DirectionType>0</DirectionType>
+      <EndTilePoint>7 13</EndTilePoint>
+    </PathInfo>
+    <PathInfo>
+      <DirectionType>2</DirectionType>
+      <EndTilePoint>14 13</EndTilePoint>
+    </PathInfo>
+    <PathInfo>
+      <DirectionType>6</DirectionType>
+      <EndTilePoint>14 13</EndTilePoint>
+    </PathInfo>
+  </Info>
+</DungeonInfo>

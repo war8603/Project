@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MapInfo>
+  <MapSize>4 4 3</MapSize>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-4 1 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-4 2 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-4 3 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-4 4 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-3 0 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-3 1 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-3 2 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-3 3 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-3 4 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 -1 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 0 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 1 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 2 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 3 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-2 4 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-1 -2 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>2</Index>
+    <MapPos>-1 -1 2</MapPos>
+    <PossibleType>3</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>2</Index>
+    <MapPos>-1 0 1</MapPos>
+    <PossibleType>3</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-1 1 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-1 3 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>-1 4 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>1</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 -3 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 -2 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 -1 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>2</Index>
+    <MapPos>0 0 0</MapPos>
+    <PossibleType>3</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 1 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 2 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>0 3 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>1 -4 3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>1 -3 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>1 -2 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>1 -1 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>3</Index>
+    <MapPos>1 0 -1</MapPos>
+    <PossibleType>2</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>3</Index>
+    <MapPos>1 1 -2</MapPos>
+    <PossibleType>2</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>1 2 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 -4 2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 -3 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 -2 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 -1 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 0 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>2 1 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>3 -4 1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>3 -3 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>3 -2 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>3 -1 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>3 0 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>4 -4 0</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>4 -3 -1</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>4 -2 -2</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>1</Index>
+    <MapPos>4 -1 -3</MapPos>
+    <PossibleType>1</PossibleType>
+    <AreaType>2</AreaType>
+  </HexData>
+  <HexData>
+    <Index>2</Index>
+    <MapPos>-1 2 -1</MapPos>
+    <PossibleType>3</PossibleType>
+    <AreaType>0</AreaType>
+  </HexData>
+</MapInfo>

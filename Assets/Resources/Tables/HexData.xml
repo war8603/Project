@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<HexInfo>
+  <Infos>
+    <Index>0</Index>
+    <Name>Empty</Name>
+    <ObjName>Empty</ObjName>
+  </Infos>
+  <Infos>
+    <Index>1</Index>
+    <Name>Land</Name>
+    <ObjName>Land</ObjName>
+  </Infos>
+  <Infos>
+    <Index>2</Index>
+    <Name>Mountain</Name>
+    <ObjName>Mountain</ObjName>
+  </Infos>
+  <Infos>
+    <Index>3</Index>
+    <Name>Lake</Name>
+    <ObjName>Lake</ObjName>
+  </Infos>
+</HexInfo>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Players>
+  <Player>
+    <Index>1</Index>
+    <KeyName>Ichie</KeyName>
+    <SpineDataAsset>spine_charactersd_ichie_SkeletonData</SpineDataAsset>
+    <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
+    <MovingType>1</MovingType>
+    <Hp>30</Hp>
+    <MoveSpeed>5</MoveSpeed>
+    <MoveRange>50</MoveRange>
+    <AttackRange>1</AttackRange>
+</Player>
+  <Player>
+    <Index>2</Index>
+    <KeyName>Kanon</KeyName>
+    <SpineDataAsset>spine_charactersd_kanon_SkeletonData</SpineDataAsset>
+    <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
+    <MovingType>2</MovingType>
+    <Hp>30</Hp>
+    <MoveSpeed>5</MoveSpeed>
+    <MoveRange>50</MoveRange>
+    <AttackRange>1</AttackRange>
+</Player>
+  <Player>
+    <Index>3</Index>
+    <KeyName>Ren</KeyName>
+    <SpineDataAsset>spine_charactersd_ren_SkeletonData</SpineDataAsset>
+    <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
+    <MovingType>1</MovingType>
+    <Hp>30</Hp>
+    <MoveSpeed>5</MoveSpeed>
+    <MoveRange>50</MoveRange>
+    <AttackRange>1</AttackRange>
+  </Player>
+  <Player>
+    <Index>4</Index>
+    <KeyName>Torako</KeyName>
+    <SpineDataAsset>spine_charactersd_torako_SkeletonData</SpineDataAsset>
+    <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
+    <MovingType>1</MovingType>
+    <Hp>30</Hp>
+    <MoveSpeed>5</MoveSpeed>
+    <MoveRange>50</MoveRange>
+    <AttackRange>1</AttackRange>
+  </Player>
+  <Player>
+    <Index>5</Index>
+    <KeyName>Yumi</KeyName>
+    <SpineDataAsset>spine_charactersd_yumi_SkeletonData</SpineDataAsset>
+    <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
+    <MovingType>1</MovingType>
+    <Hp>30</Hp>
+    <MoveSpeed>5</MoveSpeed>
+    <MoveRange>50</MoveRange>
+    <AttackRange>1</AttackRange>
+  </Player>
+</Players>
