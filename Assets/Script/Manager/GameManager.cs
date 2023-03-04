@@ -72,11 +72,6 @@ public class GameManager : MonoBehaviour
         callback?.Invoke();
     }
 
-    void GotoDungeon()
-    {
-        SceneManager.LoadScene("Dungeon");
-    }
-
     /*
     void OnLoadingBattle()
     {
@@ -123,7 +118,7 @@ public class GameManager : MonoBehaviour
 
         if (_isGameStart == true)
             return;
-
+        /*
         List<TouchInfo> touchInfos = TouchManager.Instance.TouchInfos;
         if (_selectedFingerID == -1 && touchInfos.Count > 0)
         {
@@ -176,7 +171,7 @@ public class GameManager : MonoBehaviour
                 _selectedPlayer.transform.position = new Vector3(worldPosition.x, _selectedPlayer.transform.position.y, worldPosition.z - 0.25f);
             }
         }
-
+        */
         /*
         TouchInfo touchInfo = TouchManager.Instance.GetTouch();
         if (touchInfo != null)

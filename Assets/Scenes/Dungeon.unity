@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -672,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a793b88d94ef7047bc6d598981b4544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _battleCamera: {fileID: 1967867512}
 --- !u!4 &1773492246
 Transform:
   m_ObjectHideFlags: 0
