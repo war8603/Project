@@ -13,7 +13,7 @@ public class TRPlayer
     MovingType _movingType;
     List<string> _motions = new List<string>();
     int _hp;
-    int _moveSpeed;
+    float _moveSpeed;
     int _moveRange;
     int _attackRange;
 
@@ -58,7 +58,7 @@ public class TRPlayer
         set { _hp = value; }
     }
 
-    public int MoveSpeed
+    public float MoveSpeed
     {
         get { return _moveSpeed; }
         set { _moveSpeed = value; }

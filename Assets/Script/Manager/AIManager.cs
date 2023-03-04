@@ -64,6 +64,10 @@ public class AIManager
                     finPaths.RemoveRange(player.MoveRange, finPaths.Count - player.MoveRange);
                 }
 
+                // 한칸씩 이동하고 검색하는게 맞는 로직일경우 아래.
+                if (finPaths.Count > 1)
+                    finPaths.RemoveRange(1, finPaths.Count - 1);
+
                 player.OnStartMove(finPaths);
                 break;
             case BattlePlayerActType.MoveEnd:
@@ -84,6 +88,10 @@ public class AIManager
             // 움직일수 있는 거리보다 크면 움직일수 있는 거리만큼 이동.
             //paths.RemoveRange(player.MoveRange, paths.Count - player.MoveRange);
         }
+
+        if (paths.Count > 1)
+            paths.RemoveRange(1, paths.Count - 1);
+
         player.OnStartMove(paths);
     }
 

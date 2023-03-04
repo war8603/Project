@@ -7,7 +7,7 @@
     <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
     <MovingType>1</MovingType>
     <Hp>30</Hp>
-    <MoveSpeed>5</MoveSpeed>
+    <MoveSpeed>0.3</MoveSpeed>
     <MoveRange>50</MoveRange>
     <AttackRange>1</AttackRange>
 </Player>
@@ -18,7 +18,7 @@
     <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
     <MovingType>2</MovingType>
     <Hp>30</Hp>
-    <MoveSpeed>5</MoveSpeed>
+    <MoveSpeed>0.3</MoveSpeed>
     <MoveRange>50</MoveRange>
     <AttackRange>1</AttackRange>
 </Player>
@@ -29,7 +29,7 @@
     <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
     <MovingType>1</MovingType>
     <Hp>30</Hp>
-    <MoveSpeed>5</MoveSpeed>
+    <MoveSpeed>0.3</MoveSpeed>
     <MoveRange>50</MoveRange>
     <AttackRange>1</AttackRange>
   </Player>
@@ -40,7 +40,7 @@
     <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
     <MovingType>1</MovingType>
     <Hp>30</Hp>
-    <MoveSpeed>5</MoveSpeed>
+    <MoveSpeed>0.3</MoveSpeed>
     <MoveRange>50</MoveRange>
     <AttackRange>1</AttackRange>
   </Player>
@@ -51,7 +51,7 @@
     <Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
     <MovingType>1</MovingType>
     <Hp>30</Hp>
-    <MoveSpeed>5</MoveSpeed>
+    <MoveSpeed>0.3</MoveSpeed>
     <MoveRange>50</MoveRange>
     <AttackRange>1</AttackRange>
   </Player>

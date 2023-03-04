@@ -256,7 +256,7 @@ public class FileManager
             }
             playerItem.PlayerMovingType = (MovingType)int.Parse(movingType);
             playerItem.Hp = int.Parse(hp);
-            playerItem.MoveSpeed = int.Parse(moveSpeed);
+            playerItem.MoveSpeed = float.Parse(moveSpeed);
             playerItem.MoveRange = int.Parse(moveRange);
             playerItem.AttackRange = int.Parse(attackRange);
             playerItems.Add(playerItem);

@@ -18,7 +18,6 @@ public enum BattlePlayerActType
     MoveEnd,
     ShowAttackRange,
     Attack,             // AIPlayer 제어
-    AttackEnd,          // AIPlayer 제어
 }
 
 public class BattlePlayerBase : PlayerBase
@@ -89,12 +88,45 @@ public class BattlePlayerBase : PlayerBase
 
     public virtual void OnStartMove(List<HexTile> paths)
     {
+        /*
         SetActionType(BattlePlayerActType.Moving);
         OnPlayAnim(trackIndex: 0, "run", loop: true);
         _moveHexes = paths;
 
         if (paths.Count > 0)
             _destHex = paths[paths.Count - 1];
+
+        if (paths.Count <= 0)
+            return;
+        */
+        if (paths.Count <= 0)
+            return;
+
+        SetActionType(BattlePlayerActType.Moving);
+        OnPlayAnim(trackIndex: 0, "run", loop: true);
+        _moveHexes = paths;
+
+        OnMoving();
+    }
+
+    void OnMoving()
+    {
+        _destHex = _moveHexes[0];
+        _moveHexes.RemoveAt(0);
+
+        OnChangeDirection(_destHex);
+        transform.DOMove(_destHex.transform.position, MoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            _curHex = _destHex;
+            if (_moveHexes.Count > 0)
+            {
+                OnMoving();
+            }
+            else
+            {
+                SetActionType(BattlePlayerActType.Idle);
+            }
+        });
     }
 
     public void OnEndMove(HexTile nextHex)

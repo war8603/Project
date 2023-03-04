@@ -6,7 +6,7 @@ public class PlayerStatus
 {
     int _hp = 30;
 
-    int _moveSpeed = 5;
+    float _moveSpeed = 0.3f;
     int _moveRange = 3;
 
     int _attackRange = 1;
@@ -17,7 +17,7 @@ public class PlayerStatus
         set { _hp = value; }
     }
 
-    public int MoveSpeed
+    public float MoveSpeed
     {
         get { return _moveSpeed; }
     }
@@ -32,7 +32,7 @@ public class PlayerStatus
         get { return _attackRange; }
     }
 
-    public PlayerStatus(int hp, int moveSpeed, int moveRanege, int attackRange)
+    public PlayerStatus(int hp, float moveSpeed, int moveRanege, int attackRange)
     {
         _hp = hp;
         _moveSpeed = moveSpeed;
