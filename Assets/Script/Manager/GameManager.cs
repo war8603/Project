@@ -110,9 +110,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_isGameStart == true)
-            _playerManager.OnUpdate();
-
         if (_touchManager != null)
             _touchManager.OnUpdate();
 

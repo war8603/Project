@@ -21,16 +21,6 @@ public class AIPlayer : BattlePlayerBase
         {
             OnMoving();
         }
-        else if (ActType == BattlePlayerActType.Attack)
-        {
-            // todo : dummy 상대방에게 공격하러 이동.
-            OnAttack(_attackHex);
-        }
-        else if(ActType == BattlePlayerActType.AttackEnd)
-        {
-            // todo : dummy 공격후 원래 자리로 이동.
-            OnAttack(_curHex);
-        }
         else
         {
             AIProc();
@@ -105,26 +95,5 @@ public class AIPlayer : BattlePlayerBase
                 }
             }
         }
-    }
-
-    void OnAttack(HexTile dest)
-    {
-        Vector3 playerPos = transform.position;
-        Vector3 destPos = MapManager.Instance.GetWorldPos(dest.Point);
-        _attackSpeed += Time.deltaTime * 10f;
-
-        float distance = Vector3.Distance(playerPos, destPos);
-        if (distance > 0.1f)
-        {
-            transform.position += (destPos - playerPos).normalized * Time.deltaTime * _attackSpeed;
-        }
-        else
-        {
-            transform.position = MapManager.Instance.GetWorldPos(dest.Point);
-            SetActionType(ActType == BattlePlayerActType.Attack ? BattlePlayerActType.AttackEnd : BattlePlayerActType.Idle);
-            _attackSpeed = ATTACKSPEED;
-        }
-
-        OnChangeDirection(dest);
     }
 }

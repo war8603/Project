@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using DG.Tweening;
 
 public enum MovingType
 {
@@ -24,9 +25,9 @@ public class BattlePlayerBase : PlayerBase
 {
     protected HexTile _curHex; // 플레이어의 현재 위치
     protected HexTile _destHex; // 이동시 도착위치
-    protected HexTile _attackHex; // 공격 위치
+    protected HexTile attackHex; // 공격 위치
 
-    protected float _attackSpeed = 20f; // todo : 공격시 속도. 나중에 바꿔야함.
+    protected float _attackSpeed = 0.1f; // todo : 공격시 속도. 나중에 바꿔야함.
     protected const float ATTACKSPEED = 20f;
 
     protected List<HexTile> _moveHexes; // 이동할 위치
@@ -48,8 +49,6 @@ public class BattlePlayerBase : PlayerBase
 
     public HexTile CurHex => _curHex;
     public HexTile DestHex => _destHex;
-    public HexTile AttackHex => _attackHex;
-    public List<HexTile> MoveHexes => _moveHexes;
 
     public BattlePlayerActType ActType => _actionType;
 
@@ -119,8 +118,14 @@ public class BattlePlayerBase : PlayerBase
     {
         SetActionType(BattlePlayerActType.Attack);
 
-        HexPoint attackPos = (CurHex.Point - target.CurHex.Point).Normalize;
-        _attackHex = MapManager.Instance.GetHex(CurHex.Point - (CurHex.Point - target.CurHex.Point).Normalize);
+        HexTile attackHex = MapManager.Instance.GetHex(CurHex.Point - (CurHex.Point - target.CurHex.Point).Normalize);
+
+        OnChangeDirection(attackHex);
+        transform.DOMove(attackHex.transform.position, _attackSpeed / 2f).OnComplete(() =>
+        {
+            OnChangeDirection(CurHex);
+            transform.DOMove(CurHex.transform.position, _attackSpeed / 2f).OnComplete(() => SetActionType(BattlePlayerActType.Idle));
+        });
     }
 
     public virtual void OnEndAttack()
@@ -145,5 +150,30 @@ public class BattlePlayerBase : PlayerBase
             OnLookAtRight();
         else
             OnLookAtLeft();
+    }
+
+    void OnChangeDirection(HexTile targetHex)
+    {
+        for (int i = 0; i < MapManager.Dirs.Length; i++)
+        {
+            if (MapManager.Dirs[i] == (targetHex.Point - CurHex.Point).Normalize)
+            {
+                switch ((MapManager.DirectionType)i)
+                {
+                    case MapManager.DirectionType.Right:
+                    case MapManager.DirectionType.UpRight:
+                    case MapManager.DirectionType.DownRight:
+                        OnLookAtRight();
+                        return;
+                    case MapManager.DirectionType.UpLeft:
+                    case MapManager.DirectionType.Left:
+                    case MapManager.DirectionType.DownLeft:
+                        OnLookAtLeft();
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
     }
 }

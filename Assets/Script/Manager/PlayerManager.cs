@@ -125,7 +125,7 @@ public class PlayerManager
         if (_players == null || _players.Count == 0)
             return;
 
-        for(int i = 0; i < _players.Count; i++)
+        for (int i = 0; i < _players.Count; i++)
         {
             _players[i].OnUpdate();
         }
