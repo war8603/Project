@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,9 +57,19 @@ public class GameManager : MonoBehaviour
         CreateFadeManager();
         _touchManager = TouchManager.Instance;
 
-        _fadeManager.OnStartFadeOut(() => GotoDungeon(), isImmediately:true);
+        _fadeManager.OnStartFadeOut(() => StartCoroutine(GotoDungeon(() => _fadeManager.OnStartFadeIn(null))), isImmediately:true);
 
         _dataManager = DataManager.Instance;
+    }
+
+    IEnumerator GotoDungeon(Action callback)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Dungeon");
+        while(!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        callback?.Invoke();
     }
 
     void GotoDungeon()
@@ -82,7 +93,7 @@ public class GameManager : MonoBehaviour
     void CreateMap()
     {
         // todo : dummy
-        MapData mapInfo = _dataManager.TRMaps[Random.Range(0, _dataManager.TRMaps.Count)].MapItemData;
+        MapData mapInfo = _dataManager.TRMaps[UnityEngine.Random.Range(0, _dataManager.TRMaps.Count)].MapItemData;
 
         _mapManager = MapManager.Instance;
         _mapManager.CreateMap(_mapRoot.transform, mapInfo);
