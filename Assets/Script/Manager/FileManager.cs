@@ -217,54 +217,6 @@ public class FileManager
         return mapItems;
     }
 
-    public List<TRPlayer> LoadPlayerTable()
-    {
-        Debug.Log("Load Map Items");
-        //string path = "Assets/Resources/Tables/";
-        //string fileName = path + "PlayerTable.xml";
-        string fileName = "PlayerTable";
-
-        TextAsset txtAsset = (TextAsset)Resources.Load("Tables/" + fileName);
-
-        XmlDocument xmlFile = new XmlDocument();
-        //xmlFile.Load(fileName);
-        xmlFile.LoadXml(txtAsset.text);
-
-        List<TRPlayer> playerItems = new List<TRPlayer>();
-        XmlNodeList infos = xmlFile.SelectNodes("Players/Player");
-        foreach (XmlNode node in infos)
-        {
-            string index = node["Index"].InnerText;
-            string keyName = node["KeyName"].InnerText;
-            string name = node["SpineDataAsset"].InnerText;
-            string motionsStr = node["Motion"].InnerText;
-            string[] motions = motionsStr.Split(';');
-            string movingType = node["MovingType"].InnerText;
-            string hp = node["Hp"].InnerText;
-            string moveSpeed = node["MoveSpeed"].InnerText;
-            string moveRange = node["MoveRange"].InnerText;
-            string attackRange = node["AttackRange"].InnerText;
-
-            TRPlayer playerItem = new TRPlayer();
-            playerItem.Index = int.Parse(index);
-            playerItem.KeyName = keyName;
-            playerItem.SpineDataAsset = name;
-            playerItem.Motions = new List<string>();
-            for(int i = 0; i < motions.Length; i++)
-            {
-                playerItem.Motions.Add(motions[i]);
-            }
-            playerItem.PlayerMovingType = (MovingType)int.Parse(movingType);
-            playerItem.Hp = int.Parse(hp);
-            playerItem.MoveSpeed = float.Parse(moveSpeed);
-            playerItem.MoveRange = int.Parse(moveRange);
-            playerItem.AttackRange = int.Parse(attackRange);
-            playerItems.Add(playerItem);
-        }
-
-        return playerItems;
-    }
-
     public void SaveDungeonData(DungeonData data)
     {
         Debug.Log("Save Dungeon Data");

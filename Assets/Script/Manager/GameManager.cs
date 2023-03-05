@@ -34,9 +34,6 @@ public class GameManager : MonoBehaviour
 
     bool _isGameStart = false;
 
-    BattlePlayerBase _selectedPlayer = null;
-    HexTile _lastHex = null;
-    int _selectedFingerID = -1;
     public Camera CameraUI
     {
         get { return _cameraUI; }
@@ -52,6 +49,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(_uiRoot.transform.parent);
     }
+
     void Start()
     {
         CreateFadeManager();
@@ -60,6 +58,17 @@ public class GameManager : MonoBehaviour
         _fadeManager.OnStartFadeOut(() => StartCoroutine(GotoDungeon(() => _fadeManager.OnStartFadeIn(null))), isImmediately:true);
 
         _dataManager = DataManager.Instance;
+        _dataManager.Init();
+
+        // todo : Dummy
+        _dataManager.SetPlayerData(new List<PlayerData>
+        {
+            new PlayerData(PlayerType.Friend, 1),
+            new PlayerData(PlayerType.Friend, 2),
+            new PlayerData(PlayerType.Friend, 3),
+            new PlayerData(PlayerType.Friend, 4),
+            new PlayerData(PlayerType.Enemy, 5),
+        });
     }
 
     IEnumerator GotoDungeon(Action callback)
@@ -92,20 +101,6 @@ public class GameManager : MonoBehaviour
 
         _mapManager = MapManager.Instance;
         _mapManager.CreateMap(_mapRoot.transform, mapInfo);
-    }
-
-    void CreatePlayer()
-    {
-        // todo : dummy
-        List<TRPlayer> players = new List<TRPlayer>();
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 2));
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 1));
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 3));
-        _playerManager = PlayerManager.Instance;
-
-        List<TRPlayer> enemies = new List<TRPlayer>();
-        enemies.Add(_dataManager.TRPlayers.Find(x => x.Index == 5));
-        //_playerManager.GenPlayerTest(_playerRoot, players, enemies);
     }
 
     void Update()

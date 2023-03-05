@@ -193,15 +193,9 @@ public class BattleManager : MonoBehaviour
 
     void CreatePlayer(Transform playerRoot)
     {
-        // todo : dummy
-        List<TRPlayer> players = new List<TRPlayer>();
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 2));
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 1));
-        players.Add(_dataManager.TRPlayers.Find(x => x.Index == 3));
-        _playerManager = PlayerManager.Instance;
-
-        List<TRPlayer> enemies = new List<TRPlayer>();
-        enemies.Add(_dataManager.TRPlayers.Find(x => x.Index == 5));
-        _playerManager.GenPlayerTest(playerRoot, players, enemies);
+        var friendPlayers = DataManager.Instance.GetPlayerData(PlayerType.Friend);
+        var enemyPlayers = DataManager.Instance.GetPlayerData(PlayerType.Enemy);
+        
+        _playerManager.GenPlayerTest(playerRoot, friendPlayers, enemyPlayers);
     }
 }

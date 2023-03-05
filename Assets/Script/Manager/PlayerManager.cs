@@ -4,84 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
 
-public class TRPlayer
-{
-    PlayerType _playerType;
-    int _index;
-    string _keyName;
-    string _spineDataAsset;
-    MovingType _movingType;
-    List<string> _motions = new List<string>();
-    int _hp;
-    float _moveSpeed;
-    int _moveRange;
-    int _attackRange;
-
-    public PlayerType Type
-    {
-        get { return _playerType; }
-        set { _playerType = value; }
-    }
-    public int Index
-    {
-        get { return _index; }
-        set { _index = value; }
-    }
-
-    public string KeyName
-    {
-        get { return _keyName; }
-        set { _keyName = value; }
-    }
-
-    public string SpineDataAsset
-    {
-        get { return _spineDataAsset; }
-        set { _spineDataAsset = value; }
-    }
-
-    public List<string> Motions
-    {
-        get { return _motions; }
-        set { _motions = value; }
-    }
-
-    public MovingType PlayerMovingType
-    {
-        get { return _movingType; }
-        set { _movingType = value; }
-    }
-
-    public int Hp
-    {
-        get { return _hp; }
-        set { _hp = value; }
-    }
-
-    public float MoveSpeed
-    {
-        get { return _moveSpeed; }
-        set { _moveSpeed = value; }
-    }
-
-    public int MoveRange
-    {
-        get { return _moveRange; }
-        set { _moveRange = value; }
-    }
-
-    public int AttackRange
-    {
-        get { return _attackRange; }
-        set { _attackRange = value; }
-    }
-}
-
-public enum PlayerType
-{
-    Friend,
-    Enemy,
-}
 public class PlayerManager
 {
     #region Singleton
@@ -131,35 +53,40 @@ public class PlayerManager
         }
     }
 
-    public void GenPlayerTest(Transform playerRoot, List<TRPlayer> playerData, List<TRPlayer> enemyData)
+    public void GenPlayerTest(Transform playerRoot, List<PlayerData> friendPlayers, List<PlayerData> enemeyPlayers)
     {
         InitPlayers();    
 
-        for(int i = 0; i < playerData.Count; i++)
+        for(int i = 0; i < friendPlayers.Count; i++)
         {
-            // todo : dummy. 추후 변경.
-            playerData[i].Type = PlayerType.Friend;
-            BattlePlayerBase player = CreatePlayer(playerRoot, playerData[i]);
+            var trPlayer = Tables.Instance.GetRecord<TRPlayer>(x => x.Index == friendPlayers[i].Index);
+            if (trPlayer == null)
+                continue;
+
+            BattlePlayerBase player = CreatePlayer(playerRoot, PlayerType.Friend, trPlayer);
             _players.Add(player);
         }
 
-        for (int i = 0; i < enemyData.Count; i++)
+        for (int i = 0; i < enemeyPlayers.Count; i++)
         {
-            enemyData[i].Type = PlayerType.Enemy;
-            BattlePlayerBase player = CreatePlayer(playerRoot, enemyData[i]);
+            var trPlayer = Tables.Instance.GetRecord<TRPlayer>(x => x.Index == enemeyPlayers[i].Index);
+            if (trPlayer == null)
+                continue;
+
+            BattlePlayerBase player = CreatePlayer(playerRoot, PlayerType.Enemy, trPlayer);
             _players.Add(player);
         }
     }
 
-    public BattlePlayerBase CreatePlayer(Transform root, TRPlayer playerData)
+    public BattlePlayerBase CreatePlayer(Transform root, PlayerType playerType, TRPlayer playerData)
     {
         GameObject obj = CreatePlayerGameObject(root);
         obj.name = playerData.KeyName;
 
         BattlePlayerBase player = obj.AddComponent<AIPlayer>();
-        player.SetPlayerType(playerData.Type);
+        player.SetPlayerType(playerType);
 
-        HexTile playerHex = MapManager.Instance.GetRandomSpawnPos(playerData.PlayerMovingType, playerData.Type);
+        HexTile playerHex = MapManager.Instance.GetRandomSpawnPos(playerData.PlayerMovingType, playerType);
         player.SetCurHex(playerHex);
 
         player.SetPlayerData(playerData);

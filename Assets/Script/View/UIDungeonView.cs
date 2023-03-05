@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -127,8 +128,8 @@ public class UIDungeonView : MonoBehaviour
     public void CreatePlayer(GameObject spineRoot)
     {
         // todo : dummy 
-        TRPlayer item = DataManager.Instance.TRPlayers.Find(x => x.Index == 1);
-        _player = PlayerManager.Instance.CreateDungeonPlayer(spineRoot.transform, LayerNameSpine, item.KeyName, item.SpineDataAsset);
+        TRPlayer trPlayer = Tables.Instance.GetRecord<TRPlayer>(x => x.Index == 1);
+        _player = PlayerManager.Instance.CreateDungeonPlayer(spineRoot.transform, LayerNameSpine, trPlayer.KeyName, trPlayer.SpineDataAsset);
     }
 
     public void MovePlayer(Vector3 dest, bool isTeleport)
