@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TRMap>
+		<Index>1</Index>
+		<DevNote> 테스트맵1</DevNote>
+		<MapName>Test1</MapName>
+	</TRMap>
+	<TRMap>
+		<Index>2</Index>
+		<DevNote> 테스트맵2</DevNote>
+		<MapName>Test2</MapName>
+	</TRMap>
+	<TRMap>
+		<Index>3</Index>
+		<DevNote> 테스트맵3</DevNote>
+		<MapName>Test3</MapName>
+	</TRMap>
+</Root>

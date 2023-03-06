@@ -185,7 +185,12 @@ public class BattleManager : MonoBehaviour
     void CreateMap(Transform mapRoot)
     {
         // todo : dummy
-        MapData mapInfo = _dataManager.TRMaps[Random.Range(0, _dataManager.TRMaps.Count)].MapItemData;
+        //MapData mapInfo = _dataManager.TRMaps[Random.Range(0, _dataManager.TRMaps.Count)].MapItemData;
+        var trMaps = Tables.Instance.GetTable<TRMap>();
+        int randomTRMaps = trMaps[UnityEngine.Random.Range(0, trMaps.Count)].Index;
+
+        var mapData = DataManager.Instance.GetMapData(randomTRMaps);
+        MapData mapInfo = mapData;
 
         _mapManager = MapManager.Instance;
         _mapManager.CreateMap(mapRoot, mapInfo);

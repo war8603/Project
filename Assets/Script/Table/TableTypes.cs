@@ -5,5 +5,6 @@ using UnityEngine;
 public enum TableType
 {
     Player,
+    Map,
     Length,
 }

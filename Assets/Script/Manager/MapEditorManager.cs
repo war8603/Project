@@ -51,11 +51,6 @@ public class MapEditorManager : MonoBehaviour
     {
         get { return DataManager.Instance.TRHexes; }
     }
-
-    public List<TRMap> MapItems
-    {
-        get { return DataManager.Instance.TRMaps; }
-    }
     
     BtnType _curSelectedBtnType = BtnType.PossibleType;
 

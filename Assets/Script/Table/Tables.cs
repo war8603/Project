@@ -3,9 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using TMPro.EditorUtilities;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TableDoc
 {
@@ -120,8 +123,21 @@ public class Tables
         {
             case TableType.Player:
                 return new TRPlayer();
+            case TableType.Map:
+                return new TRMap();
         }
         return result;
+    }
+
+    public List<T> GetTable<T>() where T : TRFoundation
+    {
+        TableType type = _tableTypeDic[typeof(T)];
+        List<T> tables = new List<T>();
+        for(int i = 0; i < _tableDatas[type].Count; i++)
+        {
+            tables.Add((T)_tableDatas[type][i]);
+        }
+        return tables;
     }
 
     public T GetRecord<T>(System.Func<T, bool> selector) where T : TRFoundation
