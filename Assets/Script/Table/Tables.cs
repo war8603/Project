@@ -125,6 +125,8 @@ public class Tables
                 return new TRPlayer();
             case TableType.Map:
                 return new TRMap();
+            case TableType.Hex:
+                return new TRHex();
         }
         return result;
     }

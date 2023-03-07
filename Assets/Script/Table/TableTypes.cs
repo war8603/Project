@@ -6,5 +6,6 @@ public enum TableType
 {
     Player,
     Map,
+    Hex,
     Length,
 }

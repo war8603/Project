@@ -2,31 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRHex
-{
-    int _index;
-    string _name;
-    string _objName;
-    
-    public int Index
-    {
-        get { return _index; }
-        set { _index = value; }
-    }
-
-    public string Name
-    {
-        get { return _name; }
-        set { _name = value; }
-    }
-
-    public string ObjName
-    {
-        get { return _objName; }
-        set { _objName = value; }
-    }
-}
-
 public class MapManager
 {
     public enum DirectionType
@@ -148,7 +123,7 @@ public class MapManager
 
     public GameObject CreateHexObj(int hexIndex, Transform root)
     {
-        List<TRHex> hexInfos = DataManager.Instance.TRHexes;
+        List<TRHex> hexInfos = Tables.Instance.GetTable<TRHex>();
         if (hexInfos == null || hexInfos.Count == 0)
             return null;
         TRHex hexInfo = hexInfos.Find(x => x.Index == hexIndex);
@@ -175,7 +150,7 @@ public class MapManager
 
     public void CreateMap(Transform root, MapData mapDataInfo, bool isEditor = false)
     {
-        List<TRHex> hexInfos = DataManager.Instance.TRHexes;
+        List<TRHex> hexInfos = Tables.Instance.GetTable<TRHex>();
         // todo : hex 종류를 여러가지로 만들고, 오브젝트 풀을 만들어야함.
         if (_map != null)
         {

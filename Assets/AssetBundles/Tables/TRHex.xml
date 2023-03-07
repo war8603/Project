@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TRHex>
+		<Index>0</Index>
+		<DevNote>빈자리</DevNote>
+		<Name>Empty</Name>
+		<ObjName>Empty</ObjName>
+	</TRHex>
+	<TRHex>
+		<Index>1</Index>
+		<DevNote>땅</DevNote>
+		<Name>Land</Name>
+		<ObjName>Land</ObjName>
+	</TRHex>
+	<TRHex>
+		<Index>2</Index>
+		<DevNote>산 - 이동불가</DevNote>
+		<Name>Mountain</Name>
+		<ObjName>Mountain</ObjName>
+	</TRHex>
+	<TRHex>
+		<Index>3</Index>
+		<DevNote>호수 - 공중이동가능</DevNote>
+		<Name>Lake</Name>
+		<ObjName>Lake</ObjName>
+	</TRHex>
+</Root>

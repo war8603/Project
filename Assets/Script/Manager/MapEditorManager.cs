@@ -49,7 +49,7 @@ public class MapEditorManager : MonoBehaviour
 
     public List<TRHex> HexInfos
     {
-        get { return DataManager.Instance.TRHexes; }
+        get { return Tables.Instance.GetTable<TRHex>(); }
     }
     
     BtnType _curSelectedBtnType = BtnType.PossibleType;

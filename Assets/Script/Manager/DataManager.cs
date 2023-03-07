@@ -18,16 +18,12 @@ public class DataManager
         }
     }
     private FileManager _fileManager = null;
-    private List<TRHex> _trHexes = null;
     private List<PlayerData> _playerDatas = new List<PlayerData>();
     private Tables _tables = new Tables();
-
-    public List<TRHex> TRHexes => _trHexes;
 
     public void Init()
     {
         _fileManager = FileManager.Instance;
-        _trHexes = _fileManager.LoadHexTable();
         _tables.InitTabeDatas();
     }
 
