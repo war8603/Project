@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Tables
+  m_EditorClassIdentifier: 
+  m_GroupName: Tables
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c9025c7f61edb6e49828695c7e83ed0a
+  m_SerializeEntries:
+  - m_GUID: 27e5570fccf64804482e800a9a94793e
+    m_Address: Tables
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tables
+  - m_GUID: a57ec48ec84a69e45a1be5e55b636d31
+    m_Address: TRHex
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tables
+  - m_GUID: 5ec504d7545b22042962f45a2080fe7b
+    m_Address: TRMap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tables
+  - m_GUID: 7954c6ef3784a464c8419e8343707419
+    m_Address: TRPlayer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tables
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 504e1aa33869aae448cf2e0b2f68efc8, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 25db4bd136de78c45b8962ca4b5bd90b, type: 2}
+    - {fileID: 11400000, guid: 5fd7eeaebb05bdc4ab8a5372315fe9ab, type: 2}
