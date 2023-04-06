@@ -44,7 +44,18 @@ public class BattleManager : MonoBehaviour
             _isBattleStart = true;
 
         if (_isBattleStart == true)
-            _playerManager.OnUpdate();
+        {
+            if (_playerManager.IsGameOver() == 1 || _playerManager.IsGameOver() == 2)
+            {
+                string result = _playerManager.IsGameOver() == 1 ? "Victory!!" : "Defeat!!";
+                Debug.Log(result);
+                _isBattleStart = false;
+                DungeonManager.Instance.GotoDungeon();
+                this.gameObject.SetActive(false);
+            }
+            else
+                _playerManager.OnUpdate();
+        }   
 
         if (_isBattleStart == false)
         {

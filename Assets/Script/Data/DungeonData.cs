@@ -6,6 +6,7 @@ public class DungeonData
 {
     public class Info
     {
+        public int index;
         public DungeonTypes dungeonType;
         public SquPoint Point;
         public Dictionary<DirectionType, SquPoint> Path;

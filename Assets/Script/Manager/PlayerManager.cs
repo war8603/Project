@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using System.Transactions;
 
 public class PlayerManager
 {
@@ -51,6 +52,29 @@ public class PlayerManager
         {
             _players[i].OnUpdate();
         }
+    }
+
+    public int IsGameOver()
+    {
+        int friendCount = 0;
+        int enemyCount = 0;
+        for(int i = 0; i < _players.Count; i++)
+        {
+            if (_players[i].Type == PlayerType.Enemy)
+                enemyCount++;
+            else if (_players[i].Type == PlayerType.Friend)
+                friendCount++;
+        }
+
+        if (enemyCount != 0 && friendCount != 0)
+            return 0;
+        else
+        {
+            if (friendCount > 0)
+                return 1;
+            else 
+                return 2;
+        }    
     }
 
     public void GenPlayerTest(Transform playerRoot, List<PlayerData> friendPlayers, List<PlayerData> enemeyPlayers)

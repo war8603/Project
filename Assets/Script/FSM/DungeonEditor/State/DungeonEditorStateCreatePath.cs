@@ -113,7 +113,7 @@ public class DungeonEditorStateCreatePath : DungeonEditorStateBase
 
     public override bool OnExit()
     {
-        _startPathTile.SetPath(false);
+        _startPathTile?.SetPath(false);
         return base.OnExit();
     }
 }

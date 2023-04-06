@@ -66,11 +66,24 @@ public class DungeonController
         _view.CreateDungeon(data, spineRoot);
         _view.CreatePlayer(spineRoot);
 
-        DungeonItemInfo startInfo = FindStartDungeon();
-        SetCurPoint(startInfo.Point);
+        if (DataManager.Instance.CurrentDungeonIndex == -1)
+        {
+            DungeonItemInfo startInfo = FindStartDungeon();
+            SetCurPoint(startInfo.Point);
+            
+            _path = new List<Tuple<MoveType, Vector3>>();
+            _path.Add(new Tuple<MoveType, Vector3>(MoveType.Teleport, startInfo.Item.Position));
+        }
+        else
+        {
+            DungeonItemInfo dugeonItemInfo = FindCurrIndexDungeon(DataManager.Instance.CurrentDungeonIndex);
+            SetCurPoint(dugeonItemInfo.Point);
+            DataManager.Instance.CurrentDungeonIndex = dugeonItemInfo.Index;
 
-        _path = new List<Tuple<MoveType, Vector3>>();
-        _path.Add(new Tuple<MoveType, Vector3>(MoveType.Teleport, startInfo.Item.Position));
+            _path = new List<Tuple<MoveType, Vector3>>();
+            _path.Add(new Tuple<MoveType, Vector3>(MoveType.Teleport, dugeonItemInfo.Item.Position));
+        }
+
         OnSetMovePlayer();
     }
 
@@ -90,6 +103,11 @@ public class DungeonController
         }
     }
 
+    public void SetBattleLoad(bool value)
+    {
+        _isBattleLoad = value;
+    }
+
     public void OnUpdate()
     {
         if (_isBattleLoad == true)
@@ -98,10 +116,14 @@ public class DungeonController
         if (_actType == DungeonActType.Idle)
         {
             DungeonItemInfo info = _dungeonItemInfos.Find(x => x.Point == _curPoint);
-            if (info.IsUsed == false)
+            if (DataManager.Instance.CurrentDungeonIndex != info.Index && DataManager.Instance.CurrentDungeonIndex != FindStartDungeon().Index)
             {
-                _isBattleLoad = true;
-                _manager.GotoBattle();
+                if (info.IsUsed == false)
+                {
+                    SetBattleLoad(true);
+                    DataManager.Instance.CurrentDungeonIndex = info.Index;
+                    _manager.GotoBattle();
+                }
             }
 
             if (Input.GetKeyUp(KeyCode.D) == true)
@@ -233,5 +255,10 @@ public class DungeonController
     public DungeonItemInfo FindStartDungeon()
     {
         return _dungeonItemInfos.Find(x => x.DungeonType == DungeonTypes.Start);
+    }
+
+    public DungeonItemInfo FindCurrIndexDungeon(int index)
+    {
+        return _dungeonItemInfos.Find(x => x.Index == index);
     }
 }

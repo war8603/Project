@@ -85,6 +85,12 @@ public class DungeonManager : MonoBehaviour
         _controller.Init(_rootSpine, _root3D);
     }
 
+    public void SetBattleLoad(bool value)
+    {
+        _controller.SetBattleLoad(value);
+    }
+
+
     public void Update()
     {
         _controller?.OnUpdate();
@@ -110,8 +116,18 @@ public class DungeonManager : MonoBehaviour
         _cameraSpine.gameObject.SetActive(false);
 
         _cameraBattle.gameObject.SetActive(true);
-        
+        _battleManager.gameObject.SetActive(true);
         _battleManager.OnLoadingBattle(_rootBattleMap.transform, _rootBattlePlayer.transform, _cameraBattle);
+    }
+
+    public void GotoDungeon()
+    {
+        _cameraUI.gameObject.SetActive(true);
+        _camera3D.gameObject.SetActive(true);
+        _cameraSpine.gameObject.SetActive(true);
+
+        _cameraBattle.gameObject.SetActive(false);
+        SetBattleLoad(false);
     }
 
     public void SetFlowTarget(Transform target)

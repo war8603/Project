@@ -14,6 +14,7 @@ public enum DungeonDirectionType
 
 public class DungeonItemInfo
 {
+    int _index;
     DungeonTypes _dungeonType;      // 던전의 타입
     DungeonItem _item;              // 던전의 GameObject
     SquPoint _point;                // 던전의 위치 point
@@ -22,6 +23,12 @@ public class DungeonItemInfo
 
     List<Tuple<DirectionType, GameObject>> _pathItems = new List<Tuple<DirectionType, GameObject>>();
     Dictionary<DirectionType, SquPoint> _paths = new Dictionary<DirectionType, SquPoint>();
+
+    public int Index
+    {
+        get { return _index; }
+        set { _index = value; }
+    }
 
     public DungeonTypes DungeonType
     {

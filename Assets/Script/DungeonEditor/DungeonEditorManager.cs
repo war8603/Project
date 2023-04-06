@@ -251,8 +251,8 @@ public class DungeonEditorManager : MonoBehaviour
 
                     if (tiles.Find(x => x.Point == startPathTile.Point) == null)
                     {
-                        startPathTile.SetPathNumber(index.ToString());
-                        endPathTile.SetPathNumber(index.ToString());
+                        startPathTile.SetPathNumber("Path : " + index.ToString());
+                        endPathTile.SetPathNumber("Path : " + index.ToString());
                         index++;
 
                         tiles.Add(startPathTile);

@@ -62,6 +62,7 @@ public class UIDungeonView : MonoBehaviour
         int heightY = int.MinValue;
         for(int i = 0; i < data.Infos.Count; i++)
         {
+            data.Infos[i].index = i;
             widthX = widthX < data.Infos[i].Point.x ? data.Infos[i].Point.x : widthX;
             heightY = heightY < data.Infos[i].Point.y ? data.Infos[i].Point.y : heightY;
         }
@@ -97,6 +98,7 @@ public class UIDungeonView : MonoBehaviour
                     }
 
                     DungeonItemInfo itemData = new DungeonItemInfo();
+                    itemData.Index = info.index;
                     itemData.Point = new SquPoint(i, j);
                     itemData.Paths = info.Path;
                     itemData.Item = item;

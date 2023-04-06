@@ -47,9 +47,15 @@ public class MapEditorManager : MonoBehaviour
     string _mapName;
     #endregion 
 
+    private Tables _tables = new Tables();
     public List<TRHex> HexInfos
     {
-        get { return Tables.Instance.GetTable<TRHex>(); }
+        get 
+        {
+            if (Tables.Instance == null)
+                _tables.InitTabeDatas();
+            return Tables.Instance.GetTable<TRHex>(); 
+        }
     }
     
     BtnType _curSelectedBtnType = BtnType.PossibleType;

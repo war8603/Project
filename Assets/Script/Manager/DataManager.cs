@@ -20,7 +20,13 @@ public class DataManager
     private FileManager _fileManager = null;
     private List<PlayerData> _playerDatas = new List<PlayerData>();
     private Tables _tables = new Tables();
-
+    public int CurrentDungeonIndex
+    {
+        get { return _currDungeonIndex; }
+        set { _currDungeonIndex = value; }
+    }
+    private int _currDungeonIndex = -1;
+    
     public void Init()
     {
         _fileManager = FileManager.Instance;

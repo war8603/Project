@@ -136,9 +136,10 @@ public class BattlePlayerBase : PlayerBase
         _curHex = nextHex;
     }
 
-    public void GetDamage(int damage)
+    public void SetDamage(int damage)
     {
         _status.HP -= damage;
+        Debug.Log("Damage!! " + this.name);
         if (_status.HP <= 0)
         {
             Debug.Log("Dead " + this);
@@ -157,6 +158,7 @@ public class BattlePlayerBase : PlayerBase
         {
             OnChangeDirection(CurHex);
             transform.DOMove(CurHex.transform.position, _attackSpeed / 2f).OnComplete(() => SetActionType(BattlePlayerActType.Idle));
+            target.SetDamage(1);
         });
     }
 

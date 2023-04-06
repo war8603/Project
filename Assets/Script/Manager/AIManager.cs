@@ -146,6 +146,6 @@ public class AIManager
     public void StartAttack(BattlePlayerBase player, BattlePlayerBase target)
     {
         Debug.Log("Attack <attcker : " + player + "> <target : " + target + ">");
-        target.GetDamage(0);
+        target.SetDamage(0);
     }
 }

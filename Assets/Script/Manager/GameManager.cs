@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         CreateFadeManager();
         _touchManager = TouchManager.Instance;
 
-        _fadeManager.OnStartFadeOut(() => StartCoroutine(GotoDungeon(() => _fadeManager.OnStartFadeIn(null))), isImmediately:true);
+        ShowDungeon();
 
         _dataManager = DataManager.Instance;
         _dataManager.Init();
@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour
             new PlayerData(PlayerType.Friend, 4),
             new PlayerData(PlayerType.Enemy, 5),
         });
+    }
+
+    public void ShowDungeon()
+    {
+        _fadeManager.OnStartFadeOut(() => StartCoroutine(GotoDungeon(() => _fadeManager.OnStartFadeIn(null))), isImmediately: true);
     }
 
     IEnumerator GotoDungeon(Action callback)
