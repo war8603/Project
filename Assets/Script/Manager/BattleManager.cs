@@ -210,6 +210,7 @@ public class BattleManager : MonoBehaviour
     void CreatePlayer(Transform playerRoot)
     {
         var friendPlayers = DataManager.Instance.GetPlayerData(PlayerType.Friend);
+        friendPlayers.RemoveRange(0, 2);
         var enemyPlayers = DataManager.Instance.GetPlayerData(PlayerType.Enemy);
         
         _playerManager.GenPlayerTest(playerRoot, friendPlayers, enemyPlayers);

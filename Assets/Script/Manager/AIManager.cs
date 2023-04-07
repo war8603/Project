@@ -89,8 +89,8 @@ public class AIManager
             //paths.RemoveRange(player.MoveRange, paths.Count - player.MoveRange);
         }
 
-        if (paths.Count > 1)
-            paths.RemoveRange(1, paths.Count - 1);
+        if (paths.Count > 5)
+            paths.RemoveRange(5, paths.Count - 5);
 
         player.OnStartMove(paths);
     }

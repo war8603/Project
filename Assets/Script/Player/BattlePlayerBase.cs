@@ -76,7 +76,7 @@ public class BattlePlayerBase : PlayerBase
         _curHex = hex;
     }
 
-    public virtual void OnPlayAnim(int trackIndex = 0, string name = "idle1", bool loop = true)
+    public override void OnPlayAnim(int trackIndex = 0, string name = "idle1", bool loop = true)
     {
         _anim?.OnPlayAnim(trackIndex, name, loop);
     }
@@ -150,6 +150,22 @@ public class BattlePlayerBase : PlayerBase
     public virtual void OnStartAttack(BattlePlayerBase target)
     {
         SetActionType(BattlePlayerActType.Attack);
+        OnPlayAnim(trackIndex: 0, "happy", loop: false);
+        HexTile attackHex = MapManager.Instance.GetHex(CurHex.Point - (CurHex.Point - target.CurHex.Point).Normalize);
+        GameObject effect = GameObject.Instantiate(ResourcesManager.Instance.Load<GameObject>("Prefabs/Effect/", "ExplosionEffect"), attackHex.transform);
+        effect.transform.localPosition = Vector3.zero;
+        effect.transform.localScale = Vector3.one;
+
+        Sequence seq = DOTween.Sequence(effect);
+        seq.AppendInterval(1f);
+        seq.onComplete = () =>
+        {
+            target.SetDamage(1);
+            GameObject.Destroy(effect);
+            SetActionType(BattlePlayerActType.Idle);
+        };
+        /*
+        SetActionType(BattlePlayerActType.Attack);
 
         HexTile attackHex = MapManager.Instance.GetHex(CurHex.Point - (CurHex.Point - target.CurHex.Point).Normalize);
 
@@ -160,11 +176,7 @@ public class BattlePlayerBase : PlayerBase
             transform.DOMove(CurHex.transform.position, _attackSpeed / 2f).OnComplete(() => SetActionType(BattlePlayerActType.Idle));
             target.SetDamage(1);
         });
-    }
-
-    public virtual void OnEndAttack()
-    {
-        SetActionType(BattlePlayerActType.Idle);
+        */
     }
 
     public void OnLookAtLeft()
