@@ -10,7 +10,7 @@
 		<Hp>30</Hp>
 		<MoveSpeed>0.3</MoveSpeed>
 		<MoveRange>50</MoveRange>
-		<AttackRange>50</AttackRange>
+		<AttackRange>1</AttackRange>
 	</TRPlayer>
 	<TRPlayer>
 		<Index>2</Index>
@@ -22,7 +22,7 @@
 		<Hp>30</Hp>
 		<MoveSpeed>0.3</MoveSpeed>
 		<MoveRange>50</MoveRange>
-		<AttackRange>50</AttackRange>
+		<AttackRange>1</AttackRange>
 	</TRPlayer>
 	<TRPlayer>
 		<Index>3</Index>
@@ -34,7 +34,7 @@
 		<Hp>30</Hp>
 		<MoveSpeed>0.3</MoveSpeed>
 		<MoveRange>50</MoveRange>
-		<AttackRange>50</AttackRange>
+		<AttackRange>1</AttackRange>
 	</TRPlayer>
 	<TRPlayer>
 		<Index>4</Index>
@@ -46,7 +46,7 @@
 		<Hp>30</Hp>
 		<MoveSpeed>0.3</MoveSpeed>
 		<MoveRange>50</MoveRange>
-		<AttackRange>50</AttackRange>
+		<AttackRange>1</AttackRange>
 	</TRPlayer>
 	<TRPlayer>
 		<Index>5</Index>
@@ -55,9 +55,9 @@
 		<SpineDataAsset>spine_charactersd_yumi_SkeletonData</SpineDataAsset>
 		<Motion>happy;idle1;idle2;run;walk1;walk2</Motion>
 		<MovingType>1</MovingType>
-		<Hp>30</Hp>
+		<Hp>150</Hp>
 		<MoveSpeed>0.3</MoveSpeed>
 		<MoveRange>50</MoveRange>
-		<AttackRange>50</AttackRange>
+		<AttackRange>1</AttackRange>
 	</TRPlayer>
 </Root>
