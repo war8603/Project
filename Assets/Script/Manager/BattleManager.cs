@@ -29,7 +29,7 @@ public class BattleManager : MonoBehaviour
     int _selectedFingerID = -1;
     bool _isBattleStart = false;
 
-    Dictionary<GameObject, bool> _effectPool = new Dictionary<GameObject, bool>();
+    ObjectPool _skillEffectPool = new ObjectPool();
 
     public void Awake()
     {
@@ -183,58 +183,17 @@ public class BattleManager : MonoBehaviour
         CreatePlayer(playerRoot);
 
         List<string> skillEffectName = Enumerable.Repeat("ExplosionEffect", 5).ToList<string>();
-        CreateSkillEffectPool(skillEffectName);
-    }
-
-    void CreateSkillEffectPool(List<string> effectNames)
-    {
-        for (int i = 0; i < effectNames.Count; i++)
-        {
-            CreateSkillEffect(effectNames[i]);
-        }
+        _skillEffectPool.CreateObjectPool(skillEffectName, _effectPoolRoot);
     }
 
     public GameObject GetSkillEffect(string effectName)
     {
-        GameObject effectObj = null;
-        foreach(var effect in _effectPool)
-        {
-            if (effect.Key.name == effectName && effect.Value == false)
-            {
-                effectObj = effect.Key;
-                break;
-            }
-        }
-
-        if (effectObj == null)
-        {
-            effectObj = CreateSkillEffect(effectName);
-        }
-        
-        SetUseSkillEffect(effectObj);
-        return effectObj;
-    }
-
-    GameObject CreateSkillEffect(string effectName)
-    {
-        GameObject effectObj = GameObject.Instantiate(ResourcesManager.Instance.Load<GameObject>("Prefabs/Effect/", effectName), _effectPoolRoot.transform);
-        effectObj.name = effectName;
-        effectObj.gameObject.SetActive(false);
-        _effectPool.Add(effectObj, false);
-        return effectObj;
-    }
-
-    void SetUseSkillEffect(GameObject key)
-    {
-        _effectPool[key] = true;
-        key.gameObject.SetActive(true);
+        return _skillEffectPool.GetObject(effectName);
     }
 
     public void SetReturnSkillEffect(GameObject key)
     {
-        key.transform.SetParent(_effectPoolRoot.transform);
-        key.gameObject.SetActive(false);
-        _effectPool[key] = false;
+        _skillEffectPool.SetReturnObject(key);
     }
 
     void CreateBackImage(Transform mapRoot, Camera billboardCamera)
