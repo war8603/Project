@@ -22,6 +22,9 @@ public class PlayerManager
 
     #region Player
     const float PLAYERSIZE = 0.5f;
+
+    int _currentPlayerIndex = -1;
+
     List<BattlePlayerBase> _players = new List<BattlePlayerBase>();
     public List<BattlePlayerBase> Players
     {
@@ -45,12 +48,28 @@ public class PlayerManager
 
     public void OnUpdate()
     {
-        if (_players == null || _players.Count == 0)
-            return;
-
-        for (int i = 0; i < _players.Count; i++)
+        if (DungeonManager.Instance.IsTurnGame == true)
         {
-            _players[i].OnUpdate();
+            if (_players == null || _players.Count == 0)
+                return;
+
+            if (_currentPlayerIndex == -1)
+                _currentPlayerIndex = 0;
+
+            if (_players[_currentPlayerIndex].ActType == BattlePlayerActType.Wait)
+                _currentPlayerIndex++;
+
+            if (_currentPlayerIndex > _players.Count - 1)
+                _currentPlayerIndex = 0;
+
+            _players[_currentPlayerIndex].OnUpdate();
+        }
+        else
+        {
+            for (int i = 0; i < _players.Count; i++)
+            {
+                _players[i].OnUpdate();
+            }
         }
     }
 

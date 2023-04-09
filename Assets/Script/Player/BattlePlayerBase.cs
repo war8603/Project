@@ -15,9 +15,9 @@ public enum BattlePlayerActType
     Idle,               // AIManager 명령
     ShowMoveRange,
     Moving,             // AIPlayer 제어
-    MoveEnd,
     ShowAttackRange,
     Attack,             // AIPlayer 제어
+    Wait,
 }
 
 public class BattlePlayerBase : PlayerBase
@@ -124,16 +124,13 @@ public class BattlePlayerBase : PlayerBase
             }
             else
             {
-                SetActionType(BattlePlayerActType.Idle);
+                if (this.Type == PlayerType.Friend && AIManager.Instance.IsAttackable(this) == false)
+                    SetActionType(BattlePlayerActType.Wait);
+                else if (this.Type == PlayerType.Enemy)
+                    SetActionType(BattlePlayerActType.Wait);
+
             }
         });
-    }
-
-    public void OnEndMove(HexTile nextHex)
-    {
-        SetActionType(BattlePlayerActType.MoveEnd);
-        OnPlayAnim(trackIndex: 0, "idle2", loop: true);
-        _curHex = nextHex;
     }
 
     public void SetDamage(int damage)
@@ -163,7 +160,7 @@ public class BattlePlayerBase : PlayerBase
         {
             target.SetDamage(1);
             BattleManager.Instance.SetReturnSkillEffect(effect);
-            SetActionType(BattlePlayerActType.Idle);
+            SetActionType(BattlePlayerActType.Wait);
         };
         /*
         SetActionType(BattlePlayerActType.Attack);

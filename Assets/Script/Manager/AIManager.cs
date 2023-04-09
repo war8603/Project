@@ -27,15 +27,8 @@ public class AIManager
                 // 타켓에 대해 공격 가능 거리만큼 위치 체크
                 BattlePlayerBase target = TargetManager.Instance.FindNearTarget(player);
                 List<HexTile> dests = TargetManager.Instance.GetTargetPos(player, target);
-                for(int i = 0; i < dests.Count; i++)
-                {
-                    // 만약 공격이 가능한 거리안에 내가 존재한다면 공격
-                    if (dests[i].Point == player.CurHex.Point)
-                    {
-                        player.OnStartAttack(target);
-                        return;
-                    }
-                }
+                if (IsAttackable(player) == true)
+                    return;
 
                 int minCount = int.MaxValue;
                 List<HexTile> finPaths = new List<HexTile>();
@@ -64,18 +57,27 @@ public class AIManager
                     finPaths.RemoveRange(player.MoveRange, finPaths.Count - player.MoveRange);
                 }
 
-                // 한칸씩 이동하고 검색하는게 맞는 로직일경우 아래.
-                if (finPaths.Count > 1)
-                    finPaths.RemoveRange(1, finPaths.Count - 1);
-
                 player.OnStartMove(finPaths);
-                break;
-            case BattlePlayerActType.MoveEnd:
-                player.SetActionType(BattlePlayerActType.Idle);
                 break;
             default:
                 break;
         }
+    }
+
+    public bool IsAttackable(BattlePlayerBase player)
+    {
+        BattlePlayerBase target = TargetManager.Instance.FindNearTarget(player);
+        List<HexTile> dests = TargetManager.Instance.GetTargetPos(player, target);
+        for (int i = 0; i < dests.Count; i++)
+        {
+            // 만약 공격이 가능한 거리안에 내가 존재한다면 공격
+            if (dests[i].Point == player.CurHex.Point)
+            {
+                player.OnStartAttack(target);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void MoveToRandomPos(BattlePlayerBase player)
@@ -83,14 +85,11 @@ public class AIManager
         MapManager mapManager = MapManager.Instance;
         HexTile tarGetHex = MapManager.Instance.GetRandomPos(player.ActorMovingType);
         List<HexTile> paths = mapManager.GetPath(player.CurHex, tarGetHex, player.ActorMovingType);
-        //if (paths.Count > player.MoveRange)
+        if (paths.Count > player.MoveRange)
         {
             // 움직일수 있는 거리보다 크면 움직일수 있는 거리만큼 이동.
-            //paths.RemoveRange(player.MoveRange, paths.Count - player.MoveRange);
+            paths.RemoveRange(player.MoveRange, paths.Count - player.MoveRange);
         }
-
-        if (paths.Count > 5)
-            paths.RemoveRange(5, paths.Count - 5);
 
         player.OnStartMove(paths);
     }

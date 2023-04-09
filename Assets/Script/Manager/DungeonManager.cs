@@ -41,6 +41,13 @@ public class DungeonManager : MonoBehaviour
     BattleManager _battleManager;
     DungeonController _controller;
 
+    bool _isTurnGame = false;
+
+    public bool IsTurnGame
+    {
+        get { return _isTurnGame; }
+        set { _isTurnGame = value; }
+    }
     public Camera CameraSpine
     {
         get { return _cameraSpine; }

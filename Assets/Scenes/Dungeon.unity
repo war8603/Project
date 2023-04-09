@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleCamera: {fileID: 1967867512}
+  _effectPoolRoot: {fileID: 190894875}
 --- !u!4 &1773492246
 Transform:
   m_ObjectHideFlags: 0

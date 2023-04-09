@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class AIPlayer : BattlePlayerBase
 {
+    public AIManager AIManager => _aiManager;
     AIManager _aiManager;
     private void Awake()
     {
@@ -21,6 +22,10 @@ public class AIPlayer : BattlePlayerBase
         if (ActType == BattlePlayerActType.Idle)
         {
             AIProc();
+        }
+        else if (ActType == BattlePlayerActType.Wait)
+        {
+            _actionType = BattlePlayerActType.Idle;
         }
     }
 
