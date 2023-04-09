@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BattleManager : MonoBehaviour
 {
     [SerializeField]
     Camera _battleCamera;
+
+    [SerializeField]
+    GameObject _effectPoolRoot;
 
     private static BattleManager _instance;
     public static BattleManager Instance
@@ -22,6 +28,8 @@ public class BattleManager : MonoBehaviour
     HexTile _lastHex = null;
     int _selectedFingerID = -1;
     bool _isBattleStart = false;
+
+    Dictionary<GameObject, bool> _effectPool = new Dictionary<GameObject, bool>();
 
     public void Awake()
     {
@@ -174,7 +182,59 @@ public class BattleManager : MonoBehaviour
         // todo : dummy
         CreatePlayer(playerRoot);
 
-        //_fadeManager.OnStartFadeIn(null);
+        List<string> skillEffectName = Enumerable.Repeat("ExplosionEffect", 5).ToList<string>();
+        CreateSkillEffectPool(skillEffectName);
+    }
+
+    void CreateSkillEffectPool(List<string> effectNames)
+    {
+        for (int i = 0; i < effectNames.Count; i++)
+        {
+            CreateSkillEffect(effectNames[i]);
+        }
+    }
+
+    public GameObject GetSkillEffect(string effectName)
+    {
+        GameObject effectObj = null;
+        foreach(var effect in _effectPool)
+        {
+            if (effect.Key.name == effectName && effect.Value == false)
+            {
+                effectObj = effect.Key;
+                break;
+            }
+        }
+
+        if (effectObj == null)
+        {
+            effectObj = CreateSkillEffect(effectName);
+        }
+        
+        SetUseSkillEffect(effectObj);
+        return effectObj;
+    }
+
+    GameObject CreateSkillEffect(string effectName)
+    {
+        GameObject effectObj = GameObject.Instantiate(ResourcesManager.Instance.Load<GameObject>("Prefabs/Effect/", effectName), _effectPoolRoot.transform);
+        effectObj.name = effectName;
+        effectObj.gameObject.SetActive(false);
+        _effectPool.Add(effectObj, false);
+        return effectObj;
+    }
+
+    void SetUseSkillEffect(GameObject key)
+    {
+        _effectPool[key] = true;
+        key.gameObject.SetActive(true);
+    }
+
+    public void SetReturnSkillEffect(GameObject key)
+    {
+        key.transform.SetParent(_effectPoolRoot.transform);
+        key.gameObject.SetActive(false);
+        _effectPool[key] = false;
     }
 
     void CreateBackImage(Transform mapRoot, Camera billboardCamera)

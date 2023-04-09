@@ -152,7 +152,8 @@ public class BattlePlayerBase : PlayerBase
         SetActionType(BattlePlayerActType.Attack);
         OnPlayAnim(trackIndex: 0, "happy", loop: false);
         HexTile attackHex = MapManager.Instance.GetHex(CurHex.Point - (CurHex.Point - target.CurHex.Point).Normalize);
-        GameObject effect = GameObject.Instantiate(ResourcesManager.Instance.Load<GameObject>("Prefabs/Effect/", "ExplosionEffect"), attackHex.transform);
+        GameObject effect = BattleManager.Instance.GetSkillEffect("ExplosionEffect");
+        effect.transform.SetParent(attackHex.transform);
         effect.transform.localPosition = Vector3.zero;
         effect.transform.localScale = Vector3.one;
 
@@ -161,7 +162,7 @@ public class BattlePlayerBase : PlayerBase
         seq.onComplete = () =>
         {
             target.SetDamage(1);
-            GameObject.Destroy(effect);
+            BattleManager.Instance.SetReturnSkillEffect(effect);
             SetActionType(BattlePlayerActType.Idle);
         };
         /*
