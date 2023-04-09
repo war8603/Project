@@ -37,6 +37,12 @@ public class UIDungeonView : MonoBehaviour
     [SerializeField]
     float _playerMoveSpeed = 5f;
 
+    [SerializeField]
+    Image _turnModeImage;
+
+    [SerializeField]
+    Image _realTimeModeImage;
+
     DungeonController _controller;
 
     public GameObject Player => _player.gameObject;
@@ -50,6 +56,7 @@ public class UIDungeonView : MonoBehaviour
     public void SetController(DungeonController controller)
     {
         _controller = controller;
+        OnClickRealTimeMode();
     }
 
     public void CreateDungeon(DungeonData data, GameObject objRoot)
@@ -157,5 +164,25 @@ public class UIDungeonView : MonoBehaviour
                 _controller.OnEndMovePlayer();
             }
         }
+    }
+
+    public void OnClickTurnMode()
+    {
+        DungeonManager.Instance.IsTurnGame = true;
+        _turnModeImage.TryGetComponent<Button>(out var turnBtn);
+        turnBtn.interactable = false;
+        _realTimeModeImage.TryGetComponent<Button>(out var realTimeBtn);
+        realTimeBtn.interactable = true;
+        Debug.Log("OnClickTurnMode");
+    }
+
+    public void OnClickRealTimeMode()
+    {
+        DungeonManager.Instance.IsTurnGame = false;
+        _turnModeImage.TryGetComponent<Button>(out var turnBtn);
+        turnBtn.interactable = true;
+        _realTimeModeImage.TryGetComponent<Button>(out var realTimeBtn);
+        realTimeBtn.interactable = false;
+        Debug.Log("OnClickRealTimeMode");
     }
 }

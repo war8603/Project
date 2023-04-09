@@ -46,6 +46,7 @@ public class FadeManager : MonoBehaviour
                     _isFading = false;
                     alphaValue = 0f;
                     _backImage.color = tempColor;
+                    _backImage.gameObject.SetActive(false);
                     OnActionCallBack();
                 }
                 tempColor.a = alphaValue;
@@ -66,7 +67,7 @@ public class FadeManager : MonoBehaviour
                 }
                 tempColor.a = alphaValue;
                 _backImage.color = tempColor;
-                if (alphaValue == 0f) OnActionCallBack();
+                if (alphaValue == 1f) OnActionCallBack();
             }
         }
     }
@@ -79,6 +80,7 @@ public class FadeManager : MonoBehaviour
         if (isImmediately == true)
         {
             alphaValue = 0f;
+            _backImage.gameObject.SetActive(false);
         }
 
         Color tempColor = _backImage.color;
@@ -92,6 +94,7 @@ public class FadeManager : MonoBehaviour
     {
         // ¾ËÆÄ°ª 0 -> 1
         _callBack = callBack;
+        _backImage.gameObject.SetActive(true);
         float alphaValue = 0f;
         if (isImmediately == true)
         {

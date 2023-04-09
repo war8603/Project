@@ -136,7 +136,7 @@ public class BattlePlayerBase : PlayerBase
     public void SetDamage(int damage)
     {
         _status.HP -= damage;
-        Debug.Log("Damage!! " + this.name);
+        Debug.Log(string.Format("[{0}]Damage!! remain HP : {1}", this.name, _status.HP));
         if (_status.HP <= 0)
         {
             Debug.Log("Dead " + this);
